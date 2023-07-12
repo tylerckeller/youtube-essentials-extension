@@ -99,11 +99,12 @@
     
             let channelNameElement = document.querySelector("ytd-channel-name a");
             let videoTitleElement = document.querySelector("yt-formatted-string.style-scope.ytd-watch-metadata");
-            let videoLengthElement = document.querySelector("ytd-thumbnail-overlay-time-status-renderer");
+            // let videoLengthElement = document.querySelector("ytd-thumbnail-overlay-time-status-renderer");
+            const player = document.getElementById('player');
     
             let channelName = channelNameElement ? channelNameElement.innerText : '';
             let videoTitle = videoTitleElement ? videoTitleElement.innerText : '';
-            let videoLength = videoLengthElement ? videoLengthElement.innerText.trim() : '';
+            let videoLength = player.getDuration();
     
             let url = new URL(window.location.href);
             let videoId = url.searchParams.get('v');
@@ -118,7 +119,7 @@
                 videoLength: videoLength,
                 blocked: blocked
             };
-    
+
             data.push(newData);
     
             chrome.storage.local.set({ 'youtubeData': data }, function() {
@@ -126,13 +127,9 @@
                     console.log("Runtime error.");
                 }
             });
-    
-            chrome.runtime.sendMessage({
-                method: 'saveData',
-                data: newData
-            });
         });
     }
+    
     
 
     function blockVideo() {
@@ -162,24 +159,21 @@
                         // After unblockedVideos has been updated, update youtubeData
                         chrome.storage.local.get(['youtubeData'], function(result) {
                             let data = result.youtubeData || [];
-                            let updatedData = data.map(video => {
-                                if(video.url === cleanedUrl) {
-                                    return {...video, blocked: false};
-                                } else {
-                                    return video;
+                            for(let i = 0; i < data.length; i++) {
+                                if(data[i].url === cleanedUrl) {
+                                    data[i].blocked = false;
+                                    break;
                                 }
-                            });
+                            }
                             // Save the updated data
-                            chrome.storage.local.set({ 'youtubeData': updatedData }, function() {
+                            chrome.storage.local.set({ 'youtubeData': data }, function() {
                                 // After youtubeData has been updated, reload the page
                                 window.location.reload();
                             });
                         });
-                        
                     });
                 });
             });
-            
         }
     }
 })();
