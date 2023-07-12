@@ -80,6 +80,9 @@
     });
 
     setInterval(() => {
+        let url = new URL(window.location.href);
+        let videoId = url.searchParams.get('v');
+        let cleanedUrl = `${url.origin}/watch?v=${videoId}`;
         currURL = cleanedUrl;
     
         if (currURL !== prevURL) {
@@ -102,14 +105,12 @@
         chrome.storage.local.get(['youtubeData'], function(result) {
             let data = result.youtubeData || [];
     
-            let channelNameElement = document.querySelector("ytd-channel-name a");
+            let channelNameElement = document.querySelector("a.yt-simple-endpoint.style-scope.yt-formatted-string");
             let videoTitleElement = document.querySelector("yt-formatted-string.style-scope.ytd-watch-metadata");
-            // let videoLengthElement = document.querySelector("ytd-thumbnail-overlay-time-status-renderer");
-            const player = document.getElementById('player');
-    
+            let videoLengthElement = document.querySelector("span.ytp-time-duration");
+            let videoLength = videoLengthElement ? videoLengthElement.innerText : '';
             let channelName = channelNameElement ? channelNameElement.innerText : '';
             let videoTitle = videoTitleElement ? videoTitleElement.innerText : '';
-            let videoLength = player.getDuration();
     
             let url = new URL(window.location.href);
             let videoId = url.searchParams.get('v');
