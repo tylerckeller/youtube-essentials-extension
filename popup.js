@@ -1,11 +1,18 @@
-document.getElementById('educational').addEventListener('click', () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-        chrome.tabs.sendMessage(tabs[0].id, { method: 'setVideoType', type: 'Educational' });
+document.getElementById('downloadData').addEventListener('click', () => {
+    chrome.storage.local.get(['youtubeData', 'unblockedVideos'], (result) => {
+        let dataStr = JSON.stringify(result, null, 4);
+        let blob = new Blob([dataStr], { type: 'text/json' });
+        let url = URL.createObjectURL(blob);
+        
+        let link = document.createElement('a');
+        link.href = url;
+        link.download = 'data.json';
+        link.click();
     });
 });
 
-document.getElementById('entertainment').addEventListener('click', () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-        chrome.tabs.sendMessage(tabs[0].id, { method: 'setVideoType', type: 'Entertainment' });
+document.getElementById('clearData').addEventListener('click', () => {
+    chrome.storage.local.clear(() => {
+        console.log('Data has been cleared.');
     });
 });

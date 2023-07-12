@@ -154,26 +154,32 @@
                 let url = new URL(window.location.href);
                 let videoId = url.searchParams.get('v');
                 let cleanedUrl = `${url.origin}/watch?v=${videoId}`; // This is the cleaned URL
-    
+            
                 chrome.storage.local.get(['unblockedVideos'], function(result) {
                     let unblockedVideos = result.unblockedVideos || [];
                     unblockedVideos.push(cleanedUrl);
-                    chrome.storage.local.set({ 'unblockedVideos': unblockedVideos });
+                    chrome.storage.local.set({ 'unblockedVideos': unblockedVideos }, function() {
+                        // After unblockedVideos has been updated, update youtubeData
+                        chrome.storage.local.get(['youtubeData'], function(result) {
+                            let data = result.youtubeData || [];
+                            let updatedData = data.map(video => {
+                                if(video.url === cleanedUrl) {
+                                    return {...video, blocked: false};
+                                } else {
+                                    return video;
+                                }
+                            });
+                            // Save the updated data
+                            chrome.storage.local.set({ 'youtubeData': updatedData }, function() {
+                                // After youtubeData has been updated, reload the page
+                                window.location.reload();
+                            });
+                        });
+                        
+                    });
                 });
-    
-                // Update blocked status in chrome local storage
-                chrome.storage.local.get(['youtubeData'], function(result) {
-                    let data = result.youtubeData || [];
-                    let videoData = data.find(d => d.url === cleanedUrl);
-                    if (videoData) {
-                        videoData.blocked = false;
-                        chrome.storage.local.set({ 'youtubeData': data });
-                    }
-                });
-    
-                // Reload page to unblock video
-                window.location.reload();
             });
+            
         }
     }
 })();
