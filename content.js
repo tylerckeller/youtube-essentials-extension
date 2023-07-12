@@ -37,6 +37,9 @@
 
     let prevURL = "";
     let currURL = window.location.href;
+    let url = new URL(window.location.href);
+    let videoId = url.searchParams.get('v');
+    let cleanedUrl = `${url.origin}/watch?v=${videoId}`;
 
     let modalBackground = document.createElement('div');
     modalBackground.classList.add('modal-background');
@@ -62,6 +65,12 @@
     btnEducational.addEventListener('click', () => {
         saveData('Educational', false);
         modalBackground.style.display = 'none';
+        chrome.storage.local.get(['unblockedVideos'], function(result) {
+            let unblockedVideos = result.unblockedVideos || [];
+            unblockedVideos.push(cleanedUrl);
+            chrome.storage.local.set({ 'unblockedVideos': unblockedVideos }, function() {
+            });
+        });
     });
 
     btnEntertainment.addEventListener('click', () => {
@@ -71,10 +80,6 @@
     });
 
     setInterval(() => {
-        let url = new URL(window.location.href);
-        let videoId = url.searchParams.get('v');
-        let cleanedUrl = `${url.origin}/watch?v=${videoId}`; // This is the cleaned URL
-    
         currURL = cleanedUrl;
     
         if (currURL !== prevURL) {

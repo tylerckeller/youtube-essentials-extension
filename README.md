@@ -1,3 +1,21 @@
-# youtube-watch-time-chrome-extension
+# YouTube Watch Time Chrome Extension
 
-A chrome extension that lets you log all YouTube watches, categorize educational/entertainment, and allows for visualizations that show your usage.
+---
+
+## Features
+
+- classify whether YouTube video is Educational or Entertainment
+
+- each video is logged in your local data
+
+- download the json data whenever you like
+
+- clear the json whenever you like
+
+---
+
+## Limitations
+
+- duration doesn't work as expected atm
+
+- no built-in data dashboard
