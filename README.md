@@ -1,21 +1,40 @@
-# YouTube Watch Time Chrome Extension
+# YouTube Essentials Browser Extension
+
+---
+
+YouTube is an incredible tool.
+
+It can also be incredibly distracting.
+
+YouTube Essentials aims to provide users with all the productive customization and functionality that YouTube lacks.
+
+schedule different rules for different days
+
+visualize your usage and gauge whether your watch habits are net positive or net negative
+
+all this and much more...
 
 ---
 
 ## Features
 
-- classify whether YouTube video is Educational or Entertainment
+- set restrictions on categories (block or just blur)
 
-- each video is logged in your local data
+- schedule different rules for different days
 
-- download the json data whenever you like
+- each video is logged in your local data (NEVER sent off device)
 
-- clear the json whenever you like
+- download or delete your watch data whenever you like
+
+- visualize your usage and gauge your watch habits
 
 ---
 
 ## Limitations
 
-- duration doesn't work as expected atm
-
 - no built-in data dashboard
+
+
+Shoutout to the following repos for inspiration:
+
+[ADD REPO LINKS HERE]
