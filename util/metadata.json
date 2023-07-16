@@ -1300,7 +1300,7 @@
             },
         },
     },
-  "videoDetails":
+  "videoDetails": // gold
     {
       "videoId": "UGJ8VeNsAKs",
       "title": "Dustin Poirier vs Conor McGregor 2 | FREE FIGHT | UFC 291",
@@ -1731,7 +1731,7 @@
           "recommendedLevel": 2,
         },
     },
-  "microformat":
+  "microformat": // some gold
     {
       "playerMicroformatRenderer":
         {
@@ -1752,7 +1752,7 @@
               "width": 1280,
               "height": 720,
             },
-          "title":
+          "title": 
             {
               "simpleText": "Dustin Poirier vs Conor McGregor 2 | FREE FIGHT | UFC 291",
             },
@@ -2546,7 +2546,7 @@
           "trackingParams": "CFEQ794BIhMI0KGRkoqSgAMVyNLECh0oZwUK",
         },
     },
-  "adPlacements":
+  "adPlacements": // shit. gnar amount of ad placement renders and advertising data ping throughs.
     [
       {
         "adPlacementRenderer":
@@ -2574,7 +2574,7 @@
                           "instreamVideoAdRenderer":
                             {
                               "skipOffsetMilliseconds": 5000,
-                              "pings":
+                              "pings": // pings for ads and shit..? interest.
                                 {
                                   "impressionPings":
                                     [
