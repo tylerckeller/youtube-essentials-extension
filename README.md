@@ -8,15 +8,10 @@ It can also be incredibly distracting.
 
 YouTube Essentials aims to provide users with all the productive customization and functionality that YouTube lacks.
 
-schedule different rules for different days
-
-visualize your usage and gauge whether your watch habits are net positive or net negative
-
-all this and much more...
-
 ---
 
 ## Features
+
 
 - set restrictions on categories (block or just blur)
 
