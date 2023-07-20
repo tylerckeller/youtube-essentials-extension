@@ -2,6 +2,10 @@
 
 ---
 
+"Moderation in bad habits is the key to control; it is better to tame our vices than to eliminate them completely, for a controlled habit can be governed, but a void may invite chaos."
+
+---
+
 YouTube is an incredible tool.
 
 It can also be incredibly distracting.
