@@ -1,9 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Video Type Saver",
-  "version": "1.0",
+  "name": "YouTube Essentials",
+  "version": "1.1",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+        "16": "icon_blue_16x16.png",
+        "48": "icon_blue_48x48.png",
+        "128": "icon_blue_128x128.png"
+    }
   },
   "permissions": [
     "storage",
@@ -13,7 +18,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"]
+      "js": ["categoryBlocker.js", "eduOrEnt.js"]
     }
   ]
 }

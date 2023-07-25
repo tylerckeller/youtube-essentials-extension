@@ -1,18 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Extension</title>
-    <style>
-        button {
-            display: block;
-            margin: 15px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Essentials</title>
+    <script src="popup.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <button id="downloadData">Download Data</button>
     <button id="clearData">Clear Data</button>
-
-    <script src="popup.js"></script>
+    <div class="container">
+        <div class="title">Youtube Recommendation Modifier</div>
+        <div class="categories">
+            <div class="Education category">
+                <input type="checkbox" id="Edu" class="box" checked>
+                <label for="Education">Education</label>
+            </div>
+            <div class="ScienceTechnology category">
+                <input type="checkbox" id="Sci" checked class="box">
+                <label for="Science & Technology">Science & Technology</label>
+            </div>
+            <div class="Sports category">
+                <input type="checkbox" id="Spo" checked class="box">
+                <label for="Sports">Sports</label>
+            </div>
+            <div class="Entertainment category">
+                <input type="checkbox" id="Ent" checked class="box">
+                <label for="Entertainment">Entertainment</label>
+            </div>
+            <div class="FilmAnimation category">
+                <input type="checkbox" id="Fil" checked class="box">
+                <label for="Film & Animation">Film & Animation</label>
+            </div>
+            <div class="Music category">
+                <input type="checkbox" id="Mus" checked class="box">
+                <label for="Music">Music</label>
+            </div>
+            <div class="TravelEvents category">
+                <input type="checkbox" id="Tra" checked class="box">
+                <label for="Travel & Events">Travel & Events</label>
+            </div>
+            <div class="Comedy category">
+                <input type="checkbox" id="Com" checked class="box">
+                <label for="Comedy">Comedy</label>
+            </div>
+            <div class="PeopleBlogs category">
+                <input type="checkbox" id="Peo" checked class="box">
+                <label for="PeopleBlogs">PeopleBlogs</label>
+            </div>
+            <div class="Gaming category">
+                <input type="checkbox" id="Gam" checked class="box">
+                <label for="Gaming">Gaming</label>
+            </div>
+            <div class="AutosVehicles category">
+                <input type="checkbox" id="Aut" checked class="box">
+                <label for="Autos & Vehicles">Autos & Vehicles</label>
+            </div>
+            <div class="PetsAnimals category">
+                <input type="checkbox" id="Pet" checked class="box">
+                <label for="Pets & Animals">Pets & Animals</label>
+            </div>
+            <div class="NewsPolitics category">
+                <input type="checkbox" id="New" checked class="box">
+                <label for="News & Politics">News & Politics</label>
+            </div>
+            <div class="HowtoStyle category">
+                <input type="checkbox" id="How" checked class="box">
+                <label for="Howto & Style">Howto & Style</label>
+            </div>
+            <div class="NonprofitsActivism category">
+                <input type="checkbox" id="Non" checked class="box">
+                <label for="Nonprofits & Activism">Nonprofits & Activism</label>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="submit1" class="button">Submit</button>
+            <button id="reset" class="button">Reset</button>
+            <button id="selectAll" class="button">Select All</button>
+        </div>
+        <div class="links">
+            <a href="https://github.com/tylerckeller/youtube-essentials-extension" target="_blank">Github</a>
+            <!-- TODO: Add feedback form
+            <a href=""
+                target="_blank">Feedback</a>
+            -->
+        </div>
+    </div>
+    </form>
 </body>
 </html>
